@@ -1,0 +1,11 @@
+governance:
+  framework: COBIT
+  objectives:
+    - EDM03
+    - APO12
+    - DSS05
+
+risk_appetite:
+  high: unacceptable
+  medium: tolerable
+  low: acceptable

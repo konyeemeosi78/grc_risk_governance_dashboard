@@ -1,0 +1,5 @@
+cobit_objective,nist_control,description
+EDM03,RA-3,Risk Assessment
+APO12,RA-5,Vulnerability Scanning
+DSS05,SI-2,Flaw Remediation
+
