@@ -1,0 +1,134 @@
+Architectural Flow 
+1. Architectural Overview
+The Integrated GRC Risk Governance System represents a vertically structured architecture that connects external threat intelligence, operational control context, and governance oversight into a coherent decision support mechanism.
+The system operates through two complementary flows:
+•	Top-Down Configuration Flow->Governance defines objectives and risk appetite.
+•	Bottom-Up Risk Propagation Flow->External vulnerability signals are ingested, evaluated, contextualised, and escalated to governance stakeholders.
+The architecture does not perform vulnerability scanning, remediation, or compliance verification. Instead, it functions as a governance-layer visibility and interpretation system designed to enhance decision readiness.
+
+2. System Boundary
+The outer boundary labelled Integrated GRC–Risk Governance System (COBIT–NIST) represents the artefact developed in this project.
+It includes:
+•	Governance configuration logic
+•	Control mapping structure
+•	Data ingestion
+•	Risk evaluation
+•	Risk register generation
+•	Dashboard visualisation
+It excludes:
+•	Asset-level scanning
+•	Patch deployment
+•	Incident response execution
+This boundary clearly establishes the artefact as a governance decision-support mechanism.
+
+3. Public Risk Intelligence Sources
+Public Risk Intelligence Sources (NVD API / Static Datasets)
+This component represents external vulnerability intelligence, including CVE records and CVSS severity scores sourced from publicly available datasets.
+Arrow Direction:
+From Public Risk Intelligence Sources->Data Ingestion Layer
+Meaning:
+Risk signals originate externally. The system does not generate threats; it receives and processes them. This is the starting point of the bottom-up risk propagation flow.
+
+4. Governance Configuration Module
+Governance Configuration Module (COBIT Objectives & Risk Appetite)
+This module defines:
+•	Governance objectives (e.g., risk optimisation, risk management, security services oversight)
+•	Risk appetite thresholds (High / Medium / Low boundaries)
+Arrow Directions:
+Governance Configuration->Control Mapping Engine
+Governance Configuration->Governance Stakeholders
+Meaning:
+Governance intent is human-defined. Risk appetite and oversight priorities are established before runtime evaluation begins. This represents the top-down configuration layer of the system.
+
+5. Control Mapping Engine
+Control Mapping Engine (COBIT–NIST Control Mapping)
+This module contains the predefined crosswalk linking governance objectives to operational control domains.
+It provides structural alignment between:
+•	Governance objectives (strategic oversight)
+•	NIST control domains (operational context)
+Arrow Direction:
+Control Mapping Engine->Risk Evaluation and Register
+Meaning:
+The mapping does not assign severity. It provides interpretive context that structures how risk signals will later be understood at governance level.
+
+6. Data Ingestion Layer
+Data Ingestion Layer (Public Risk & Vulnerability Data)
+This module:
+•	Retrieves CVE data
+•	Extracts CVSS base scores
+•	Normalises vulnerability information
+Arrow Directions:
+Public Risk Intelligence->Data Ingestion Layer
+Data Ingestion Layer->Risk Evaluation Engine
+Meaning:
+This is the beginning of bottom-up runtime processing. Raw vulnerability intelligence is transformed into structured input for risk evaluation.
+
+7. Risk Evaluation Engine
+Risk Evaluation Engine (Rule-Based Risk Scoring & Assessment)
+This module:
+•	Applies predefined CVSS thresholds
+•	Translates CVSS into High / Medium / Low
+•	Aligns classification with defined risk appetite
+Arrow Direction:
+Risk Evaluation Engine->Integrated Governance Risk Register
+Meaning:
+This is the core translation layer. Technical severity is converted into governance ready language. This is where external threat signals become appetite aligned risk categories.
+
+8. Integrated Governance Risk Register
+Integrated Governance Risk Register (Explainable, Traceable)
+This component:
+•	Stores CVE ID
+•	Records CVSS score
+•	Assigns governance-level risk category
+•	Includes governance-control crosswalk context
+Arrow Directions:
+Risk Register->Integration & Visualisation Layer
+Risk Register->Governance Stakeholders
+Meaning:
+The register provides structured traceability. It enables accountability, documentation, and explainable governance insight.
+
+9. Integration & Visualisation Layer
+Integration & Visualisation Layer (GRC Dashboard & Governance Insights)
+This module:
+•	Aggregates risk levels
+•	Displays High/Medium/Low distribution
+•	Presents interactive governance-ready dashboard outputs
+Arrow Direction:
+Dashboard->Governance Stakeholders
+Meaning:
+Data is transformed into decision-ready insight. This is where evaluation becomes communicable governance information.
+
+10. Governance Stakeholders
+Box: Governance Stakeholders (Board / Risk Committee)
+This represents:
+•	Human oversight bodies
+•	Risk appetite setters
+•	Decision-makers
+Arrow Directions:
+Governance Stakeholders->Governance Configuration Module (intent and appetite)
+Dashboard->Governance Stakeholders (insight and escalation)
+Meaning:
+Governance remains human-in-the-loop. The system informs but does not automate decisions.
+
+11. End-to-End Flow Sequence
+1.	Governance objectives and risk appetite are defined (top-down configuration).
+2.	External CVE data is retrieved from public sources.
+3.	CVSS scores are extracted and normalised.
+4.	CVSS is translated into High/Medium/Low using rule-based thresholds.
+5.	Risk categories are contextualised using the COBIT–NIST crosswalk.
+6.	An integrated governance risk register is generated.
+7.	Risk distribution and structured insights are displayed via dashboard.
+8.	Governance stakeholders interpret the outputs and make informed decisions.
+
+12. What the Architecture Achieves
+This architecture achieves:
+•	Vertical integration across governance, control, and threat layers
+•	Structured traceability from external vulnerability signals to governance oversight
+•	Risk appetite operationalisation
+•	Clear separation between evaluation and execution
+•	Human-in-the-loop decision support
+•	Reproducible and ethically grounded design using public data
+
+13. Architectural Contribution
+The architecture operationalises integrated GRC principles by enabling bottom-up propagation of external threat intelligence through structured control context into governance oversight, while preserving top-down human-defined risk intent.
+
